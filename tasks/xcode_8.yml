@@ -8,7 +8,7 @@
   when: xcode_dl_path.stat.exists == False
 
 - name: check that the xcode archive is valid
-  command: "pkgutil --check-signature {{ xcode_src }} | grep \"Status: signed Apple Software\""
+  command: "pkgutil --check-signature /Users/{{ ansible_ssh_user }}/{{ xcode_src }} | grep \"Status: signed Apple Software\""
 
 - name: extract the xcode archive in place
   extract_xip:
